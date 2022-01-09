@@ -1,0 +1,11 @@
+<form action="{{ path('search_genre') }}" method="get"  class="m-1"> 
+        <label for="genre" class="nv-label"><h6>Genre</h6></label>
+         <select class="form-select" id="genre"  name="_genre">
+          <option selected>Choose...</option>
+                {% for genre in genres %}
+                <option value="{{genre.id}}">{{genre.getNom()}}</option>
+                {% endfor %}
+         </select>
+
+        <button type="submit" class="btn btn-outline-dark mt-2">search</button>
+</form>

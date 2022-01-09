@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}index
+{% endblock %}
+
+{% block body %}
+
+	<h4
+		class="text-center h1 text-white bg-dark fw-bold p-5 " style="--bs-bg-opacity: .5;">
+		{# <h4 class="text-center h1 bg-primary text-white">  #}
+		ACCEUIL
+	</h4>
+	<div class="container-fluid mt-3">
+		<div class="row">
+
+			<div class="col-md-3 pt-2 ">
+				<h4 class="text-center">Search/Filter</h4>
+				<hr/>
+				
+				<div class=" border border-secondary rounded">
+					<ul class="nav flex-column">
+						<li class="nav-item m-2 border rounded-2">							
+							{{include('search/search_form_auteur.html.twig')}}
+						</li>
+						<li ><hr></li>
+						<li class="nav-item m-2 border rounded-2">
+							{{include('search/search_form_genre.html.twig')}}
+						</li>
+						<li ><hr ></li>
+						<li class="nav-item m-2 border rounded-2">
+							{{include('search/search_form_date.html.twig')}}
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="col pt-2">
+
+				<div class="row">
+
+					{% for livre in livres %}
+						<div class="col-4 my-3">
+							<div class="card" style="width: 18rem;">
+								<div class="card-body">
+									<h5 class="card-title text-center">
+										{{livre.titre}}
+									</h5>
+									<p class="card-text">
+								
+										<h6>date :
+										{{ livre.dateDeParution ? livre.dateDeParution|date('Y-m-d') : '' }}
+										</h6>
+										<h6>
+										auteur :
+											{% for auteur in livre.auteur %}
+												{{auteur}},
+											{% endfor %}
+											</h6>
+									</p>
+									<a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-primary">Show</a>
+									{% if is_granted('ROLE_ADMIN') %}
+    									<a href="{{ path('livre_edit', {'id': livre.id}) }}" class="btn btn-primary">Edit</a>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+
+					{% else %}
+						<div class="col-auto">
+							No records found
+						</div>
+					{% endfor %}
+
+
+				</div>		
+			</div>
+
+		</div>
+	</div>
+	<div class="my-5"></div>
+	<div class="my-5"></div>
+	<div class="my-5"></div>
+{% endblock %}

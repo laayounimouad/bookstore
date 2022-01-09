@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Book Store</title>
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width">
+{% block stylesheets %}
+{{ encore_entry_link_tags('app') }}
+<!-- Css Files Start -->
+
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" /><!-- All css -->
+<link href="{{ asset('css/bs.css') }}" rel="stylesheet" type="text/css" /><!-- Bootstrap Css -->
+<link rel="stylesheet" type="text/css" href="{{ asset('css/main-slider.css') }}" /><!-- Main Slider Css -->
+<!--[if lte IE 10]><link rel="stylesheet" type="text/css" href="css/customIE.css" /><![endif]-->
+<link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet" type="text/css" /><!-- Font Awesome Css -->
+<link href="{{ asset('css/font-awesome-ie7.css') }}" rel="stylesheet" type="text/css" /><!-- Font Awesome iE7 Css -->
+<noscript>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/noJS.css') }}" />
+</noscript>
+
+{% endblock  %}
+
+<!-- Css Files End -->
+</head>
+<body>
+<!-- Start Main Wrapper -->
+<div class="wrapper">
+  <!-- Start Main Header -->
+  <!-- Start Top Nav Bar -->
+  <section class="top-nav-bar">
+    <section class="container-fluid container">
+      <section class="row-fluid">
+        <section class="span6">
+          <ul class="top-nav">
+            <li><a href="/" class="active">Home page</a></li>
+            <li><a href="grid-view.html">Online Store</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="shortcodes.html">Short Codes</a></li>
+            <li><a href="blog-detail.html">News</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </section>
+        <section class="span6 e-commerce-list">
+          <ul>
+            <li>Welcome! <a href="checkout.html">Login</a> or <a href="checkout.html">Create an account</a></li>
+            <li class="p-category"><a href="#">$</a> <a href="#">£</a> <a href="#">€</a></li>
+            <li class="p-category"><a href="#">eng</a> <a href="#">de</a> <a href="#">fr</a></li>
+          </ul>
+          <div class="c-btn"> <a href="cart.html" class="cart-btn">Cart</a>
+            <div class="btn-group">
+              <button data-toggle="dropdown" class="btn btn-mini dropdown-toggle">0 item(s) - $0.00<span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+  </section>
+  <!-- End Top Nav Bar -->
+  <header id="main-header">
+    <section class="container-fluid container">
+      <section class="row-fluid">
+        <section class="span4">
+          <h1 id="logo"> <a href="index.html"><img src="{{ asset('images/logo.png') }}" /></a> </h1>
+        </section>
+        <section class="span8">
+          <ul class="top-nav2">
+            <li><a href="checkout.html">My Account</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="order-recieved.html">Track Your Order</a></li>
+          </ul>
+          <div class="search-bar">
+            <input name="" type="text" value="search entire store here..." />
+            <input name="" type="button" value="Serach" />
+          </div>
+        </section>
+      </section>
+    </section>
+    <!-- Start Main Nav Bar -->
+    <nav id="nav">
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li> <a href="grid-view.html">Books</a> </li>
+              <li> <a href="grid-view.html">NOOK Books</a></li>
+              <li><a href="grid-view.html">Textbooks</a></li>
+              <li><a href="grid-view.html">News stand</a></li>
+              <li><a href="grid-view.html">Teens</a></li>
+              <li><a href="grid-view.html">Toys & Games</a></li>
+              <li class="dropdown"> <a class="dropdown-toggle" href="grid-view.html" data-toggle="dropdown"><i class="icon-heart"></i> Features<b class="caret"></b> </a>
+                <ul class="dropdown-menu">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="blog-detail.html">Blog Detail</a></li>
+                    <li><a href="grid-view.html">Product Grid View</a></li>
+                    <li><a href="list-view.html">Product List View</a></li>
+                    <li><a href="grid-view-without-side-bar.html">Product Grid View Without Side Bar</a></li>
+                    <li><a href="shortcodes.html">Short Codes</a></li>
+                    <li><a href="blog-detail.html">News</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a class="dropdown-toggle" href="grid-view.html" data-toggle="dropdown">Movies & TV <b class="caret"></b> </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Submenu Detail Column 1</a></li>
+                  <li><a href="#">Submenu Detail Column 2</a></li>
+                  <li><a href="#">Submenu Detail Column 3</a></li>
+                </ul>
+              </li>
+              <li> <a href="grid-view.html">Music</a></li>
+              <li> <a href="grid-view.html">Gift Cards</a> </li>
+              <li><a href="grid-view.html">Deals & Offers</a></li>
+            </ul>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+        <!-- /.navbar-inner -->
+      </div>
+      <!-- /.navbar -->
+    </nav>
+    <!-- End Main Nav Bar -->
+  </header>
+  <!-- End Main Header -->
+  <section>
+   <div class="container mt-3">
+        {% block body %}{% endblock %}
+    </div>
+  </section>
+   {% block javascripts %}
+<!-- JS Files Start -->
+            {{ encore_entry_script_tags('app') }}
+
+<script type="text/javascript" src="{{ asset('js/lib.js') }}"></script><!-- lib Js -->
+<script type="text/javascript" src="{{ asset('js/modernizr.js') }}"></script><!-- Modernizr -->
+<script type="text/javascript" src="{{ asset('js/easing.js') }}"></script><!-- Easing js -->
+<script type="text/javascript" src="{{ asset('js/bs.js') }}"></script><!-- Bootstrap -->
+<script type="text/javascript" src="{{ asset('js/bxslider.js') }}"></script><!-- BX Slider -->
+<script type="text/javascript" src="{{ asset('js/input-clear.js') }}"></script><!-- Input Clear -->
+<script src="{{ asset('js/range-slider.js') }}"></script><!-- Range Slider -->
+<script src="{{ asset('js/jquery.zoom.js') }}"></script><!-- Zoom Effect -->
+<script type="text/javascript" src="{{ asset('js/bookblock.js') }}"></script><!-- Flip Slider -->
+<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script><!-- Custom js -->
+<script type="text/javascript" src="{{ asset('js/social.js') }}"></script><!-- Social Icons -->
+<!-- JS Files End -->
+ {% endblock %}
+<noscript>
+<style>
+	#socialicons>a span { top: 0px; left: -100%; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; transition: all 0.3s 	ease-in-out;}
+	#socialicons>ahover div{left: 0px;}
+	</style>
+</noscript>
+<script type="text/javascript">
+  /* <![CDATA[ */
+  $(document).ready(function() {
+  $('.social_active').hoverdir( {} );
+})
+/* ]]> */
+</script>
+</body>
+</html>

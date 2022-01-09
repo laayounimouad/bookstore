@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genre index{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('notice') %}
+    {# <div class="flash-notice bg-success p-4 text-center"> #}
+    <div class="alert alert-success text-center">
+        {{ message }}
+    </div>
+{% endfor %}
+<div class="container">
+    <h1>Genre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th ><span class="float-end me-5">Actions</span></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for genre in genres %}
+            <tr>
+                <td>{{ genre.id }}</td>
+                <td>{{ genre.nom }}</td>
+                <td >
+                    <a href="{{ path('genre_show', {'id': genre.id}) }}" class="btn btn-info float-end mx-1">show</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('genre_edit', {'id': genre.id}) }}" class="btn btn-success float-end mx-1">edit</a>
+                    {% endif %}
+                </td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('genre_new') }}" class="btn btn-secondary">Create new</a>
+{% endif %}
+</div>
+{% endblock %}

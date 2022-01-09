@@ -1,0 +1,11 @@
+<form action="{{ path('search_auteur') }}" method="get" class="m-1"> 
+        <label for="auteur" class="nv-label"><h6>Auteur</h6></label>
+         <select class="form-select" id="auteur"  name="_auteur">
+          <option selected>Choose...</option>
+                {% for auteur in auteurs %}
+                <option value="{{auteur.id}}">{{auteur.getNomPrenom()}}</option>
+                {% endfor %}
+         </select>
+
+        <button type="submit" class="btn btn-outline-dark mt-2">search</button>
+</form>

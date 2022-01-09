@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur index{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice bg-success p-4 text-center">
+        {{ message }}
+    </div>
+{% endfor %}
+<div class="container">
+    <h1>Auteur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_prenom</th>
+                <th>Sexe</th>
+                <th>Date_de_naissance</th>
+                <th>Nationalite</th>
+                <th><span class="float-end me-5">actions</span></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for auteur in auteurs %}
+            <tr>
+                <td>{{ auteur.id }}</td>
+                <td>{{ auteur.nomPrenom }}</td>
+                <td>{{ auteur.sexe }}</td>
+                <td>{{ auteur.dateDeNaissance ? auteur.dateDeNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ auteur.nationalite }}</td>
+                <td>
+                    <a href="{{ path('auteur_show', {'id': auteur.id}) }}" class="btn btn-info  float-end mx-1">show</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('auteur_edit', {'id': auteur.id}) }}" class="btn btn-success  float-end mx-1">edit</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('auteur_new') }}"  class="btn btn-secondary">Create new</a>
+    {% endif %}
+    </div>
+{% endblock %}
